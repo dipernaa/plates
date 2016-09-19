@@ -1,0 +1,39 @@
+<!-- views/index.ejs -->
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plates</title>
+
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="/dist/css/index.css">
+    <script src="/bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-controller="IndexCtrl">
+
+    <% include partials/navbar.ejs %>
+    
+    <div class="container ng-cloak">
+        <div class="jumbotron text-center">
+            <h1>Plates</h1>
+            <p>Talk shit about other drivers</p>
+
+            <form name="plateForm" class="form-inline">
+                <select name="state" class="form-control" ng-model="plateState" ng-options="state.value as state.name for state in states" required>
+                    <option value='' disabled>Select a state</option>
+                </select>
+                <input type="text" name="number" class="form-control" placeholder="License Plate" ng-model="plateNumber" ng-pattern="/^[A-z0-9\- ]{1,8}$/" required>
+                <button type="submit" class="btn btn-primary" ng-click="submit()">Talk Shit</button>
+            </form>
+        </div>
+        <!-- <span ng-show="plateForm.state.$error.required">State required</span><br /> -->
+        <span ng-show="plateForm.number.$error.pattern">Not a valid plate number</span>
+    </div>
+
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/dist/js/index.js"></script>
+</body>
+</html>

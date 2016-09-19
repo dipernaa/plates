@@ -1,0 +1,22 @@
+{
+  "name": "playground",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Tony DiPerna"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.7",
+    "bootstrap": "^3.3.6"
+  }
+}
